@@ -1,0 +1,11 @@
+{
+  "lock": false,
+  "tasks": {
+    "start": "deno run -A ./src/server.ts",
+    "dev": "deno run -A --watch ./src/server.ts"
+  },
+  "imports": {
+    "$express": "npm:express@4.18.2",
+    "cors": "npm:cors"
+  }
+}
