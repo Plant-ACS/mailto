@@ -5,6 +5,7 @@
     "cco": "nan@mail.com, nana@mail.com",
     "subject": "Hello World!",
     "content": "text || <h1></h1>",
+    "isMD": false,
     "files": [
      "paths" 
     ],
