@@ -1,13 +1,7 @@
-export type Mail = {
-  uuid: string,
-  to: string,
-  from: string,
-  cc: Array<string>,
-  cco: Array<string>,
-  subject: string,
-  body: string,
-  isMD: boolean,
-  files: Array<string>,
-  sendIn: Date,
-  dateOfSend: Date
-}
+import { z } from "zod"
+import MailSchema from "@core/entities/models/mail.ts"
+import AddressEmailSchema from "@core/entities/models/address-email.ts"
+
+export type Mail = z.infer<typeof MailSchema>
+
+export type AddressEmail = z.infer<typeof AddressEmailSchema>
