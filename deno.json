@@ -7,9 +7,13 @@
   "imports": {
     "$express": "npm:express@4.18.2",
     "cors": "npm:cors",
+    "zod": "https://deno.land/x/zod@v3.21.4/mod.ts",
 
     "@core/": "./src/core/",
     "@controllers/": "./src/controllers/",
     "@main/": "./src/main/"
+  },
+  "compilerOptions": {
+    "strict": true
   }
 }
