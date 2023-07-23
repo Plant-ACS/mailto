@@ -1,7 +1,8 @@
 import { Group } from "@core/entities/group.ts"
+import { AddressEmail } from "@core/entities/mail.ts"
 
 export type IFindFilterDTO = {
-  email: string | Array<string>,
+  email: AddressEmail | Array<AddressEmail>,
   filter: IFilter
 }
 
