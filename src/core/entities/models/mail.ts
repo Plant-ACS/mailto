@@ -1,6 +1,6 @@
 import { z } from "zod"
 import AddressEmailSchema from "@core/entities/models/address-email.ts"
-import FilesSchema from "@core/entities/models/files.ts"
+import FileSchema from "@core/entities/models/file.ts"
 
 const MailSchema = z.object({
   id: z.string().uuid(),
@@ -11,7 +11,7 @@ const MailSchema = z.object({
   subject: z.string().min(5).max(25),
   body: z.string(),
   isMD: z.boolean(),
-  files: z.array(FilesSchema).optional(),
+  files: z.array(FileSchema).optional(),
   sendIn: z.date(),
   dateOfSend: z.date().optional()
 })
