@@ -1,7 +1,7 @@
 import { Group } from "@core/entities/group.ts"
 
-export type IDeleteDTO = Omit<Group, "emails">
+export type DeleteDTO = Omit<Group, "emails">
 
-export default interface IDelete {
-  delete: (data: IDeleteDTO) => Group
+export default interface IDeleteGroup {
+  delete: (data: DeleteDTO) => Promise<Group>
 }

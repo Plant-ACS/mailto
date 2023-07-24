@@ -1,14 +1,14 @@
 import { Group } from "@core/entities/group.ts"
 import { AddressEmail } from "@core/entities/mail.ts"
 
-export type IFindFilterDTO = {
+export type FindFilterDTO = {
   email: AddressEmail | Array<AddressEmail>,
-  filter: IFilter
+  filter: FilterGroupDTO
 }
 
-export type IFindOneDTO = Group["name"]
+export type FindOneDTO = Group["name"]
 
-export type IFilter = {
+export type FilterGroupDTO = {
   page: number,
   limit: number,
   order: "ASC" | "DESC",
@@ -16,8 +16,8 @@ export type IFilter = {
 }
 
 
-export default interface IFind {
-  findAll: (data: IFilter) => Array<Group>,
-  find: (data: IFindFilterDTO) => Array<Group>,
-  findOne: (data: IFindOneDTO) => Group
+export default interface IFindGroup {
+  findAll: (data: FilterGroupDTO) => Promise<Array<Group>>,
+  find: (data: FindFilterDTO) => Promise<Array<Group>>,
+  findOne: (data: FindOneDTO) => Promise<Group>
 }

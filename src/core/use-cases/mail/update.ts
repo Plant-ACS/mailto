@@ -1,7 +1,7 @@
 import { Mail } from "@core/entities/mail.ts";
 
-export type IUpdateDTO = Omit<Mail, "sendIn" | "dateOfSend">
+export type UpdateDTO = Omit<Mail, "sendIn" | "dateOfSend">
 
-export interface IUpdate {
-  update: (data: IUpdateDTO) => Mail
+export interface IUpdateMail {
+  update: (data: UpdateDTO) => Promise<Mail>
 }

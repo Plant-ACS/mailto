@@ -1,10 +1,10 @@
 import { Group } from "@core/entities/group.ts"
 
-export type IRenameDTO  = {
+export type RenameDTO  = {
   old: Group["name"],
   new: Group["name"]
 }
 
-export default interface IRemoveEmail {
-  rename: (data: IRenameDTO) => void
+export default interface IRenameGroup {
+  rename: (data: RenameDTO) => Promise<void>
 }

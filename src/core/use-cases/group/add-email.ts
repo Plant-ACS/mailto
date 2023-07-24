@@ -1,6 +1,6 @@
 import { AddressEmail } from "@core/entities/mail.ts"
 
-export type IAddEmailDTO = AddressEmail
-export default interface IAddEmail {
-  add: (data: IAddEmailDTO) => void
+export type AddEmailDTO = AddressEmail
+export default interface IAddEmailInGroup {
+  add: (data: AddEmailDTO) => Promise<void>
 }

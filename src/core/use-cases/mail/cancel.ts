@@ -1,7 +1,7 @@
 import { Mail } from "@core/entities/mail.ts"
 
-export type ICancelDTO = Mail["uuid"]
+export type CancelDTO = Mail["id"]
 
-export default interface ICancel {
-  cancel: (data: ICancelDTO) => void
+export default interface ICancelMail {
+  cancel: (data: CancelDTO) => Promise<void>
 }
