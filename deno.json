@@ -6,6 +6,7 @@
   },
   "imports": {
     "$express": "npm:express@4.18.2",
+		"$socket": "npm:socket.io@4.7.1",
     "cors": "npm:cors",
     "zod": "https://deno.land/x/zod@v3.21.4/mod.ts",
     "mailer": "https://deno.land/x/denomailer@1.6.0/mod.ts",
@@ -15,6 +16,19 @@
     "@core/": "./src/core/",
     "@controllers/": "./src/controllers/",
     "@main/": "./src/main/"
+  },
+  "fmt": {
+    "useTabs": true,
+    "indentWidth": 2,
+    "lineWidth": 60,
+    "semiColons": false,
+    "singleQuote": false,
+    "include": [
+      "./src/**/*.ts"
+    ],
+    "exclude": [
+      "data"
+    ]
   },
   "compilerOptions": {
     "strict": true
