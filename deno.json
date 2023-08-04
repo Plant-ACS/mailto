@@ -12,6 +12,8 @@
     "mailer": "https://deno.land/x/denomailer@1.6.0/mod.ts",
     "fs": "https://deno.land/std/fs/mod.ts",
     "path": "https://deno.land/std/path/mod.ts",
+    "mongoose": "npm:mongoose",
+    "dotenv": "https://deno.land/x/dotenv@v3.2.2/load.ts",
 
     "@core/": "./src/core/",
     "@controllers/": "./src/controllers/",
