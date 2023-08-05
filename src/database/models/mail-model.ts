@@ -12,7 +12,7 @@ const MailModelSchema = new Schema({
 		required: true,
 	},
 	isMD: {
-		type: Boolean,
+		type: Schema.Types.Boolean,
 		required: true,
 	},
 	files: [String],
