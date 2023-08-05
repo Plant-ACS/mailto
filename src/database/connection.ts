@@ -6,10 +6,11 @@ async function startConnection() {
 }
 
 async function getConnection() {
-	if (connection == null) {
+	if (connection == null)
 		await startConnection()
-	}
-	return connection
+	if(connection != null)
+		return connection
+	throw new Error('Connection not started')
 }
 
 export default getConnection
