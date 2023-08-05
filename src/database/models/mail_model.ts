@@ -1,4 +1,6 @@
-import { model, Schema } from "mongoose"
+import getConnection from "@database/connection.ts"
+
+const { Schema, model } = await getConnection()
 
 const MailModelSchema = new Schema({
 	subject: {
@@ -16,4 +18,5 @@ const MailModelSchema = new Schema({
 	files: [String],
 })
 
-export default model('MailModel', MailModelSchema)
+const MailModelDB = model('MailModel', MailModelSchema)
+export default MailModelDB
