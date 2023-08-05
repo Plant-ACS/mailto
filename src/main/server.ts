@@ -1,3 +1,4 @@
+import "dotenv"
 //@deno-types="npm:@types/express@4"
 import express from "$express"
 import router from "./routes/index.ts"
