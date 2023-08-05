@@ -6,7 +6,7 @@ export type FindFilterDTO = {
   filter: FilterGroupDTO
 }
 
-export type FindOneDTO = Group["name"]
+export type FindOneDTO = Omit<Group, "emails">
 
 export type FilterGroupDTO = {
   page: number,
