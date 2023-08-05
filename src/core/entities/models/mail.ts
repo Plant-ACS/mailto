@@ -3,7 +3,7 @@ import AddressEmailSchema from "@core/entities/models/address-email.ts"
 import FileSchema from "@core/entities/models/file.ts"
 
 const MailSchema = z.object({
-  id: z.string().uuid(),
+  _id: z.string().uuid(),
   to: AddressEmailSchema,
   from: AddressEmailSchema,
   cc: z.array(AddressEmailSchema).optional(),
