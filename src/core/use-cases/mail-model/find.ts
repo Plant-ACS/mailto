@@ -1,6 +1,6 @@
 import { MailModel } from "@core/entities/mail.ts"
 
-export type FindOneMailModelDTO = MailModel["id"]
+export type FindOneMailModelDTO = MailModel["_id"]
 export type FilterMailModelDTO = {
   page: number,
   limit: number,
