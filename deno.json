@@ -15,6 +15,7 @@
     "mongoose": "npm:mongoose",
     "dotenv": "https://deno.land/x/dotenv@v3.2.2/load.ts",
 
+    "@database/": "./src/database/",
     "@core/": "./src/core/",
     "@controllers/": "./src/controllers/",
     "@main/": "./src/main/"
