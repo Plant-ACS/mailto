@@ -7,7 +7,7 @@ import MailModelSchema from "@core/entities/models/mail-model.ts"
 
 export type Mail = z.infer<typeof MailSchema>
 
-export type MailModel = z.infer<typeof MailModelSchema> & Types.ObjectId
+export type MailModel = z.infer<typeof MailModelSchema>
 
 export type SettingMail = z.infer<typeof SettingMailSchema>
 
