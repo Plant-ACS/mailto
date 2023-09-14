@@ -4,13 +4,28 @@ import { MailModel } from "@core/entities/mail.ts";
 
 export default class FindMailModel implements IFindMailModel {
 	async findAll(data: FilterMailModelDTO): Promise<MailModel[]> {
-		return await MailModelDB.find(data)
+		const documents = await MailModelDB.find(data)
+		const mailModels = documents.map((document => ({
+			_id: document._id.toString(),
+			subject: document.subject,
+			body: document.body,
+			isMD: document.isMD,
+			files: document.files
+		})))
+		return mailModels
 	}
 	async findOne(data: FindOneMailModelDTO): Promise<MailModel> {
-		return await MailModelDB.findOne(data)
+		return await MailModelDB.findById(data)
 			.then((mailmodel) => {
 				if (!mailmodel) throw new Error("Mail Model not found")
-				return mailmodel
+				const mailModel: MailModel = {
+					_id: mailmodel._id.toString(),
+					subject: mailmodel.subject,
+					body: mailmodel.body,
+					isMD: mailmodel.isMD,
+					files: mailmodel.files
+				}
+				return mailModel
 			})
 			.catch((err: Error) => { throw new Error(err.message) })
 	}
