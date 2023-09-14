@@ -12,7 +12,7 @@ export type FilterGroupDTO = {
   page: number,
   limit: number,
   order: "ASC" | "DESC",
-  orderBy: "name" | "email"
+  orderBy: "name" | "sub-name" | "email"
 }
 
 
