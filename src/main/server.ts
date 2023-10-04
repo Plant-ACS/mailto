@@ -8,5 +8,9 @@ const port = Deno.env.get("PORT") || 8080
 
 app.use(express.json())
 
-app.use(router)
+app.get("/", (req, res) => {
+	res.send("Hello World")
+})
+
+app.use("/api/v1", router)
 app.listen(port, () => console.log(`started in localhost:${port}`))

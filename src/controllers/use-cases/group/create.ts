@@ -7,6 +7,6 @@ export default class CreateGroup implements ICreateGroup {
 	async create(data: CreateDTO): Promise<Group> {
 		return await GroupDB.create(data)
 			.then((group) => group)
-			.catch((_err) => { throw new Error("Error on create group") })
+			.catch((err) => { throw new Error("erro ao criar grupo") })
 	}
 }

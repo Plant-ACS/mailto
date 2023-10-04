@@ -1,8 +1,9 @@
 import mongoose from 'mongoose'
 
 let connection: typeof mongoose|null = null
+
 async function startConnection() {
-	connection = await mongoose.connect(Deno.env.get('MONGO_URL')!)
+	connection = await mongoose.connect("mongodb+srv://root-solis:E17FCsvnyh7oH4jM@solis.imfvv3c.mongodb.net/?retryWrites=true&w=majority")
 }
 
 async function getConnection() {

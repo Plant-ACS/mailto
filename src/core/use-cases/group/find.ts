@@ -8,6 +8,11 @@ export type FindFilterDTO = {
 
 export type FindOneDTO = Omit<Group, "emails">
 
+export type findAllBySubNameDTO = {
+	subName: string,
+	filter?: FilterGroupDTO
+}
+
 export type FilterGroupDTO = {
   page: number,
   limit: number,

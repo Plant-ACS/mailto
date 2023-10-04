@@ -5,7 +5,7 @@ import mailRoutes from "./mail.ts"
 
 const router = Router()
 
-router.use(["mail", "mails"], mailRoutes)
-router.use(["group", "groups"], groupRoutes)
+router.use("/mail", mailRoutes)
+router.use("/group", groupRoutes)
 
 export default router

@@ -7,5 +7,5 @@ export type AddEmailDTO = {
 	email: AddressEmail | Array<AddressEmail>
 }
 export default interface IAddEmailInGroup {
-  add: (data: AddEmailDTO) => Promise<void>
+  add: (data: AddEmailDTO) => Promise<boolean>
 }

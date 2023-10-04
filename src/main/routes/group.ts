@@ -14,7 +14,6 @@ groupRoutes.post("/", async (req, res) => {
 	const { name, subName } = req.body
 	if (!name || !subName) return res.status(400).json({ message: "Missing params" })
 
-	if (req.body.length !== 2) return res.status(400).json({ message: "Invalid params" })
 	try { GroupSchema.parse({...req.body, emails: []}) } catch (err) { return res.status(400).json({ message: "Missing params" }) }
 
 	return await new CreateGroup().create({ name, subName })
@@ -27,10 +26,11 @@ groupRoutes.put("/:subName/:name/add-email", async (req, res) => {
 	const { name, subName } = req.params
 	if (!name || !subName || !email) return res.status(400).json({ message: "Missing params" })
 
-	if (req.body.length !== 1) return res.status(400).json({ message: "Invalid params" })
 	try { GroupSchema.parse({ name, subName, emails: [email]}) } catch (_err) { return res.status(400).json({ message: "Missing params" }) }
 
 	return await new AddEmailInGroup().add({ name, subName, email })
+		.then(() => res.status(201))
+		.catch((err) => res.status(400).json({ message: err.message }))
 })
 
 groupRoutes.put('/:subName/:name/alter-subName', async (req, res) => {
@@ -86,8 +86,6 @@ groupRoutes.get('/:subName/:name', async (req, res) => {
 
 	if (!name || !subName) return res.status(400).json({ message: "Missing params" })
 
-	if (req.body.length !== 0) return res.status(400).json({ message: "Invalid params" })
-
 	return await new FindGroup().findOne({ name, subName })
 		.then((group) => res.status(200).json(group))
 		.catch((err) => res.status(400).json({ message: err.message }))
@@ -97,5 +95,6 @@ groupRoutes.get('/:subName', async (req, res) => {
 	const { subName } = req.params
 	const { page, limit, order, orderBy } = req.query
 
+	return await new FindGroup().findAllBySubName({ subName })
 })
 export default groupRoutes
