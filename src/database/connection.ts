@@ -6,7 +6,7 @@ async function startConnection() {
 	connection = await mongoose.connect("mongodb+srv://root-solis:E17FCsvnyh7oH4jM@solis.imfvv3c.mongodb.net/?retryWrites=true&w=majority")
 }
 
-async function getConnection() {
+async function getConnectionDB() {
 	if (connection == null)
 		await startConnection()
 	if(connection != null)
@@ -14,4 +14,4 @@ async function getConnection() {
 	throw new Error('Connection not started')
 }
 
-export default getConnection
+export default getConnectionDB
