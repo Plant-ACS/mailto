@@ -1,6 +1,5 @@
 import "dotenv"
-//@deno-types="npm:@types/express@4"
-import express from "$express"
+import express from "express"
 import router from "./v1/routes/index.ts"
 import getConnectionDB from "@database/connection.ts"
 
