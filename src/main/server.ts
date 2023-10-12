@@ -1,5 +1,5 @@
 import "dotenv"
-//@deno-types="npm:@types/express@4"
+//@deno-types="@types/express"
 import express from "$express"
 import router from "./v1/routes/index.ts"
 import { getMailerClient } from "@main/config/mailer.ts"
