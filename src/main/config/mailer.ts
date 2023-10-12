@@ -1,5 +1,4 @@
-//@deno-types="@types/mailer"
-import mailer from "mailer"
+import mailer from "nodemailer"
 
 let client: mailer.Transporter | null = null
 

@@ -1,10 +1,10 @@
 import "dotenv"
 import express from "express"
-import router from "./v1/routes/index.ts"
-import getConnectionDB from "@database/connection.ts"
+import router from "./v1/routes"
+import getConnectionDB from "@database/connection"
 
 const app = express()
-const port = Deno.env.get("PORT") || 8080
+const port = process.env.PORT || 8080
 
 // await getConnectionDB().then(() => console.log("connected to database"))
 // .catch((e) => console.error("Error on connect to database: "+e))

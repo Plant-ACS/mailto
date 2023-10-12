@@ -1,6 +1,6 @@
 //@deno-types="npm:@types/express@4"
-import { Router } from "$express"
-import { getMailerClient } from "@main/config/mailer.ts"
+import { Router } from "express"
+import { getMailerClient } from "@main/config/mailer"
 
 const mailRoutes = Router()
 
