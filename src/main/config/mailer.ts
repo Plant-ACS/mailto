@@ -1,27 +1,28 @@
-import mailer from "nodemailer"
+//@deno-types=@types/mailer
+import mailer from "mailer"
 
 let client: mailer.Transporter | null = null
 
 export function connect() {
+	const { MAIL_HOST, MAIL_PORT, MAIL_USER, MAIL_PASS } = Deno.env.toObject()
 	client = mailer.createTransport({
-		host: "sandbox.smtp.mailtrap.io",
-		port: 465,
+		host: MAIL_HOST,
+		port: parseInt(MAIL_PORT),
 		auth: {
-			user: "e8a31150874e1e",
-			pass: "4249cbe1cb2a33"
+			user: MAIL_USER,
+			pass: MAIL_PASS
 		},
-		secure: true,
 		debug: true
 	});
 
-	client.on("idle", () => client = null)
+	client.on("idle", () => { client = null; connect()})
 	client.on("error", (e) => console.error("Error on mailer client: "+e))
 
 	client.verify(function(error, success) {
 		if (error) {
 			console.log(error);
 		} else {
-			console.log("Server is ready to take our messages");
+			console.log("mailer server is ready");
 			return false;
 		}
 	});
