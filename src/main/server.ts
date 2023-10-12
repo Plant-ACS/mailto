@@ -15,4 +15,4 @@ app.get("/", (req, res) => {
 })
 
 app.use("/api/v1", router)
-app.listen(port, () => console.log(`started in localhost:${port}`))
+app.listen(port, () => console.log(`started in ${Deno.env.get("HOST") || "localhost"}:${port}`))
