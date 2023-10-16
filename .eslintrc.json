@@ -52,7 +52,7 @@
           {
             "pattern": "@database/**",
             "group": "internal"
-          },
+          }
         ],
         "pathGroupsExcludedImportTypes": ["builtin"],
         "newlines-between": "always",

@@ -1,11 +1,12 @@
 import "dotenv"
-//@deno-types="@types/express"
-import express from "$express"
-import router from "./v1/routes/index.ts"
-import { getMailerClient } from "@main/config/mailer.ts"
+import express from "express"
+
+import { getMailerClient } from "@main/config/mailer"
+
+import router from "./v1/routes"
 
 const app = express()
-const port = Deno.env.get("PORT") || 8080
+const port = process.env.PORT || 8080
 
 app.use(express.json())
 
@@ -15,4 +16,4 @@ app.get("/", (req, res) => {
 })
 
 app.use("/api/v1", router)
-app.listen(port, () => console.log(`started in ${Deno.env.get("HOST") || "localhost"}:${port}`))
+app.listen(port, () => console.log(`started in ${process.env.HOST || "localhost"}:${port}`))
